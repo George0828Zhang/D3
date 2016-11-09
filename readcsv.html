@@ -22,15 +22,6 @@
 		}
 	);
 
-		d3.csv("./IntelStock.csv", function(data)
-		{
-			//len = data.length;
-			console.log(data);
-			//max_y = d3.max(data, function(d){return d.close});
-			var lines = d3.line().x(function(d, i){return i * (width/len);}).y(function(d){return height*(1 - d.close / max_y)});
-			svgctrl.append("path").data([data]).attr("d", lines).attr("stroke", "blue").attr("stroke-width", 3).attr("fill", "none");
-		});
-
 	d3.csv("./AMDStock.csv", function(data)
 		{
 			//len = data.length;
