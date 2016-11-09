@@ -6,10 +6,15 @@
   <title>Document</title>
 </head>
 <body>
-<script>
-	var svgctrl = d3.select("body").append("svg").attr("width", 500).attr("height", 500);
-	var addC = svgctrl.append("circle").attr("cx", 100).attr("cy", 250).attr("r", 50).attr("stroke", "black").attr("stroke-width", 4).attr("fill", "white");
-	var addPolyGon = svgctrl.append("polygon").attr("points", "260,160 120,150 250,250 260,160 400,250, 250, 250").attr("style", "fill:none;stroke:black;stroke-width:4");
+<script type="text/javascript">
+	var width = 1280; var height = 720;
+	var svgctrl = d3.select("body").append("svg").attr("width", width).attr("height", height);
+	d3.csv("./NvidiaStock.csv", function(data){
+		var len = data.length;
+		console.log(data);
+		var max_y = d3.max(data, function(d){return d.close});
+		var lines = d3.line().x(function(d, i){return i * (width/len);}).y(function(d){return height*(1 - d.close / max_y)});
+	svgctrl.append("path").data([data]).attr("d", lines).attr("stroke", "green").attr("fill", "none");});
 </script>
 </body>
 </html>
