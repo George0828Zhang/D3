@@ -9,12 +9,24 @@
 <script type="text/javascript">
 	var width = 1280; var height = 720;
 	var svgctrl = d3.select("body").append("svg").attr("width", width).attr("height", height);
-	d3.csv("./NvidiaStock.csv", function(data){
-		var len = data.length;
-		console.log(data);
-		var max_y = d3.max(data, function(d){return d.close});
-		var lines = d3.line().x(function(d, i){return i * (width/len);}).y(function(d){return height*(1 - d.close / max_y)});
-	svgctrl.append("path").data([data]).attr("d", lines).attr("stroke", "green").attr("fill", "none");});
+	d3.csv("./NvidiaStock.csv", function(data)
+		{
+			var len = data.length;
+			console.log(data);
+			var max_y = d3.max(data, function(d){return d.close});
+			var lines = d3.line().x(function(d, i){return i * (width/len);}).y(function(d){return height*(1 - d.close / max_y)});
+			svgctrl.append("path").data([data]).attr("d", lines).attr("stroke", "green").attr("fill", "none");
+		}
+	);
+	d3.csv("./AMDStock.csv", function(data)
+		{
+			var len = data.length;
+			console.log(data);
+			var max_y = d3.max(data, function(d){return d.close});
+			var lines = d3.line().x(function(d, i){return i * (width/len);}).y(function(d){return height*(1 - d.close / max_y)});
+			svgctrl.append("path").data([data]).attr("d", lines).attr("stroke", "red").attr("fill", "none");
+		}
+	);
 </script>
 </body>
 </html>
