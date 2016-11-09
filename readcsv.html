@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <script src="https://d3js.org/d3.v4.min.js"></script>
-  <title>Document</title>
+  <title>NVDAv.s.AMD</title>
 </head>
 <body>
 <script type="text/javascript">
@@ -15,7 +15,7 @@
 			console.log(data);
 			var max_y = d3.max(data, function(d){return d.close});
 			var lines = d3.line().x(function(d, i){return i * (width/len);}).y(function(d){return height*(1 - d.close / max_y)});
-			svgctrl.append("path").data([data]).attr("d", lines).attr("stroke", "green").attr("fill", "none");
+			svgctrl.append("path").data([data]).attr("d", lines).attr("stroke", "green").attr("stroke-width", 3).attr("fill", "none");
 		}
 	);
 	d3.csv("./AMDStock.csv", function(data)
@@ -24,7 +24,7 @@
 			console.log(data);
 			var max_y = d3.max(data, function(d){return d.close});
 			var lines = d3.line().x(function(d, i){return i * (width/len);}).y(function(d){return height*(1 - d.close / max_y)});
-			svgctrl.append("path").data([data]).attr("d", lines).attr("stroke", "red").attr("fill", "none");
+			svgctrl.append("path").data([data]).attr("d", lines).attr("stroke", "red").attr("stroke-width", 3).attr("fill", "none");
 		}
 	);
 </script>
