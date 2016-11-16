@@ -2,12 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="d3.js"></script>
+  <script src="d3.layout.cloud.js"></script>
+  <script src="d3.wordcloud"></script>
   <title>Word Cloud</title>
 </head>
 <body>
+<div id="wordcloud"></div>
 <script type="text/javascript">
-	d3.csv("./wikicloud.csv", function(data){});
+	d3.csv("./wikicloud.csv", function(data){
+		console.log(data);
+		d3.wordcloud()
+        .size([800, 400])
+        .selector('#workcloud')
+        .words(data)
+        .start();
+	});
 </script>
 </body>
 </html>
