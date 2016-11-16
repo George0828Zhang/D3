@@ -1,6 +1,6 @@
 	function nvamd()
 	{
-	var width = 1920; var height = 1080;
+	var width = 960; var height = 293;
 	var svgctrl = d3.select(".article").append("svg").attr("width", width).attr("height", height);
 	var len;
 	var max_y;
