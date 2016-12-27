@@ -5,12 +5,12 @@
   <script src="d3.js"></script>
   <script src="d3.layout.cloud.js"></script>
   <script src="d3.wordcloud.js"></script>
-  <title>Word Cloud</title>
+  <title>Operator Word Cloud</title>
 </head>
 <body>
 <div id='wordcloud'></div>
 <script type="text/javascript">
-	d3.csv("./wikicloud.csv", function(data){
+	d3.csv("https://george0828zhang.github.io/D3/operator_cloud.csv", function(data){
 		console.log(data);
 		d3.wordcloud()
         .size([800, 400])
